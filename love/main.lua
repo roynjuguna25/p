@@ -1,9 +1,10 @@
 Object = require 'libraries/classic/classic'
-require 'objects/test'
 
+-- Automating the require process for all classes
 function love.load()
     local object_files = {}
     recursiveEnumerate('objects', object_files)
+    requireFiles(object_files)
 end
 
 function recursiveEnumerate(folder, file_list)
@@ -20,15 +21,17 @@ end
 
 function requireFiles(files)
     for _, file in ipairs(files) do
-        local file = file:sub(1, -5)
-        require(file)
+        -- Remove the ".lua" extension and convert slashes to dots
+        local class_name = file:gsub('/', '.'):sub(1, -5)
+        require(class_name)
     end
 end
 
 function love.update(dt)
-    frame = frame + 1
+
 end
 
 function love.draw()
-    print(frame)
+    local myCircle = circle(100, 100 ,50)
+    myCircle:draw()
 end
