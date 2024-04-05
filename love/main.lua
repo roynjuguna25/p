@@ -28,10 +28,10 @@ function requireFiles(files)
 end
 
 function love.update(dt)
-
+    HyperCircle:update()
 end
 
 function love.draw()
-    local myCircle = circles(400, 300 ,50)
-    myCircle:draw()
+    local HyperCircle = HyperCircle(400, 300, 50, 10, 120)
+    HyperCircle:draw()
 end
