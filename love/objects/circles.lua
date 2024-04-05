@@ -1,9 +1,9 @@
-local Object = require("classic")
+local Object = require("libraries/classic")
 
 -- An object class to create a circle -- 
-local circles = Object:extend()
+circles = Object:extend()
 
-function circles:new()
+function circles:new(x, y, radius)
     self.x = x
     self.y = y
     self.radius = radius
@@ -13,7 +13,7 @@ function circles:update(dt)
 
 end
 
-function circles:draw(x, y, radius)
+function circles:draw()
     love.graphics.circle("fill", self.x, self.y, self.radius)
 end 
 

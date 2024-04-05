@@ -1,4 +1,4 @@
-Object = require 'libraries/classic/classic'
+Object = require 'libraries/classic'
 
 -- Automating the require process for all classes
 function love.load()
@@ -32,6 +32,6 @@ function love.update(dt)
 end
 
 function love.draw()
-    local myCircle = circle(100, 100 ,50)
+    local myCircle = circles(400, 300 ,50)
     myCircle:draw()
 end
